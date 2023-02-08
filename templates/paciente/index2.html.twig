@@ -1,0 +1,7 @@
+<h1>Pacientes 2</h1>
+
+<ul>
+    {% for key, paciente in datos %}
+        <li><a href="{{ path('detallePaciente', {'nombre': key, 'apellido': paciente[0], 'telefono': paciente[1]}) }}">{{ key }} {{ paciente[0] }}</a></li>
+    {% endfor %}
+</ul>

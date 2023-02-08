@@ -18,24 +18,57 @@ class PacienteController extends AbstractController
             'Lola' => 'Flores',
         ];
 
-        return $this->render('index.html.twig', [
+        return $this->render('paciente/index.html.twig', [
             'datos' => $datos,
         ]);
     }
 
-    #[Route('/obtenerIniciales/{nombre}/{apellido}', name: 'obtenerIniciales')]
-    public function obtenerIniciales($nombre, $apellido): Response
+    #[Route('/paciente2', name: 'paciente2')]
+    public function index2(): Response
     {
-        return new Response($nombre[0].' '.$apellido[0]);
-    }
+        $datos = [
+            'Pepillo' => [
+                'Palotes',
+                '629009876'
+            ],
+            'Lola' => [
+                'Flores',
+                '629009876'
+            ]
+        ];
 
-    #[Route('/inicialesPaciente/{name}/{surname}', name: 'app_inicialesPaciente')]
-    public function inicialesPaciente($name, $surname): RedirectResponse
-    {
-        return $this->redirectToRoute('obtenerIniciales', [
-            'nombre' => $name,
-            'apellido' => $surname
+        return $this->render('paciente/index2.html.twig', [
+            'datos' => $datos,
         ]);
     }
+
+    #[Route('/detallePaciente/{nombre}/{apellido}/{telefono}', name: 'detallePaciente')]
+    public function index3($nombre, $apellido, $telefono): Response
+    {
+        $datos = [
+            'nombre' => $nombre,
+            'apellido' => $apellido,
+            'telefono' => $telefono
+        ];
+
+        return $this->render('paciente/detalle.html.twig', [
+            'datos' => $datos,
+        ]);
+    }
+
+    // #[Route('/obtenerIniciales/{nombre}/{apellido}', name: 'obtenerIniciales')]
+    // public function obtenerIniciales($nombre, $apellido): Response
+    // {
+    //     return new Response($nombre[0].' '.$apellido[0]);
+    // }
+
+    // #[Route('/inicialesPaciente/{name}/{surname}', name: 'app_inicialesPaciente')]
+    // public function inicialesPaciente($name, $surname): RedirectResponse
+    // {
+    //     return $this->redirectToRoute('obtenerIniciales', [
+    //         'nombre' => $name,
+    //         'apellido' => $surname
+    //     ]);
+    // }
    
 }
