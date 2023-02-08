@@ -55,20 +55,5 @@ class PacienteController extends AbstractController
             'datos' => $datos,
         ]);
     }
-
-    // #[Route('/obtenerIniciales/{nombre}/{apellido}', name: 'obtenerIniciales')]
-    // public function obtenerIniciales($nombre, $apellido): Response
-    // {
-    //     return new Response($nombre[0].' '.$apellido[0]);
-    // }
-
-    // #[Route('/inicialesPaciente/{name}/{surname}', name: 'app_inicialesPaciente')]
-    // public function inicialesPaciente($name, $surname): RedirectResponse
-    // {
-    //     return $this->redirectToRoute('obtenerIniciales', [
-    //         'nombre' => $name,
-    //         'apellido' => $surname
-    //     ]);
-    // }
    
 }
